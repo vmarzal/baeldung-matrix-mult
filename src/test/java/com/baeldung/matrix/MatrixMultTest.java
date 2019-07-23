@@ -7,8 +7,14 @@ import org.apache.commons.math3.linear.Array2DRowRealMatrix;
 import org.apache.commons.math3.linear.RealMatrix;
 import org.ejml.simple.SimpleMatrix;
 import org.junit.jupiter.api.Test;
+import org.la4j.Matrix;
+import org.la4j.matrix.dense.Basic2DMatrix;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
+
+import cern.colt.matrix.DoubleFactory2D;
+import cern.colt.matrix.DoubleMatrix2D;
+import cern.colt.matrix.linalg.Algebra;
 
 public class MatrixMultTest {
 	 	
@@ -72,6 +78,36 @@ public class MatrixMultTest {
 		assertThat(actual).isEqualTo(expected);
 	}
 	
+	@Test
+	void multiplyMatricesLA4J() {
+		Matrix firstMatrix = new Basic2DMatrix(
+				new double[][] { new double[] { 1d, 5d }, new double[] { 2d, 3d }, new double[] { 1d, 7d } });
+		
+		Matrix secondMatrix = new Basic2DMatrix(
+				new double[][] { new double[] { 1d, 2d, 3d, 7d }, new double[] { 5d, 2d, 8d, 1d } });
+		
+		Matrix expected = new Basic2DMatrix(new double[][] { new double[] { 26d, 12d, 43d, 12d },
+				new double[] { 17d, 10d, 30d, 17d }, new double[] { 36d, 16d, 59d, 14d } });
+		
+		Matrix actual = firstMatrix.multiply(secondMatrix);
+		assertThat(actual).isEqualTo(expected);
+		
+	}
 	
+	@Test
+	void multiplyMatricesColt() {
+		DoubleMatrix2D firstMatrix = DoubleFactory2D.dense							
+				.make(new double[][] { new double[] { 1d, 5d }, new double[] { 2d, 3d }, new double[] { 1d, 7d } });
+		
+		DoubleMatrix2D secondMatrix = DoubleFactory2D.dense							
+				.make(new double[][] { new double[] { 1d, 2d, 3d, 7d }, new double[] { 5d, 2d, 8d, 1d } });
+		
+		DoubleMatrix2D expected = DoubleFactory2D.dense.make(new double[][] { new double[] { 26d, 12d, 43d, 12d },
+				new double[] { 17d, 10d, 30d, 17d }, new double[] { 36d, 16d, 59d, 14d } });
+		
+		Algebra algebra = new Algebra();
+		DoubleMatrix2D actual = algebra.mult(firstMatrix, secondMatrix);
+		assertThat(actual).isEqualTo(expected);		
+	}
 	
 }
