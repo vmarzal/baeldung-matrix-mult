@@ -1,3 +1,3 @@
-## Baeldung matrices multiplication
+## Matrices multiplication
 
 Examples from Baeldung site for matrixes multiplications.
