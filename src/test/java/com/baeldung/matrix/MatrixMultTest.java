@@ -6,19 +6,25 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import org.apache.commons.math3.linear.Array2DRowRealMatrix;
 import org.apache.commons.math3.linear.RealMatrix;
 import org.ejml.simple.SimpleMatrix;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.la4j.Matrix;
 import org.la4j.matrix.dense.Basic2DMatrix;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
 
+import com.baeldung.matrix.support.TestResultLoggerExtension;
+
 import cern.colt.matrix.DoubleFactory2D;
 import cern.colt.matrix.DoubleMatrix2D;
 import cern.colt.matrix.linalg.Algebra;
 
+@ExtendWith(TestResultLoggerExtension.class)
 public class MatrixMultTest {
-	 	
+	 		
 	@Test
+	@Disabled(value = "Disabled for correctness")
 	void multiplyMatrices() {
 		double[][] firstMatrix = new double[][] { new double[] { 1d, 5d }, new double[] { 2d, 3d },
 				new double[] { 1d, 7d } };
