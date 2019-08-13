@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import org.apache.commons.math3.linear.Array2DRowRealMatrix;
 import org.apache.commons.math3.linear.RealMatrix;
 import org.ejml.simple.SimpleMatrix;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.la4j.Matrix;
 import org.la4j.matrix.dense.Basic2DMatrix;
@@ -19,7 +20,7 @@ import cern.colt.matrix.linalg.Algebra;
 public class MatrixMultTest {
 	 	
 	@Test
-	void multiplyMatrices() {
+	void testMultiplyMatrices() {
 		double[][] firstMatrix = new double[][] { new double[] { 1d, 5d }, new double[] { 2d, 3d },
 				new double[] { 1d, 7d } };
 
@@ -29,11 +30,23 @@ public class MatrixMultTest {
 				new double[] { 36d, 16d, 59d, 14d } };
 						
 		double[][] calculated = new MatrixMult().multiplyMatrices(firstMatrix, secondMatrix);		
-		assertArrayEquals(expected, calculated);
+		assertArrayEquals(expected, calculated);			
 	}
 	
 	@Test
-	void multiplyMatricesWithEJML() {
+	void testMultiplyMatricesExpectedException() {
+		double[][] firstMatrix = new double[][] { new double[] { 1d, 5d }, new double[] { 2d, 3d },
+			new double[] { 1d, 7d } };
+					
+		Assertions.assertThrows(NullPointerException.class, () -> {
+			new MatrixMult().multiplyMatrices(firstMatrix, null);	
+		});
+				
+	}
+	
+	
+	@Test
+	void testMultiplyMatricesWithEJML() {
 		SimpleMatrix firstMatrix = new SimpleMatrix(
 				new double[][] { new double[] { 1d, 5d }, new double[] { 2d, 3d }, new double[] { 1d, 7d } });
 		
@@ -48,7 +61,7 @@ public class MatrixMultTest {
 	}
 	
 	@Test
-	void multiplyMatricesWithND4J() {
+	void testMultiplyMatricesWithND4J() {
 		INDArray firstMatrix = Nd4j
 				.create(new double[][] { new double[] { 1d, 5d }, new double[] { 2d, 3d }, new double[] { 1d, 7d } });
 
@@ -64,7 +77,7 @@ public class MatrixMultTest {
 	}
 	
 	@Test
-	void multiplyMatricesApacheCommons() {
+	void testMultiplyMatricesApacheCommons() {
 		RealMatrix firstMatrix = new Array2DRowRealMatrix(							
 				new double[][] { new double[] { 1d, 5d }, new double[] { 2d, 3d }, new double[] { 1d, 7d } });
 		
@@ -79,7 +92,7 @@ public class MatrixMultTest {
 	}
 	
 	@Test
-	void multiplyMatricesLA4J() {
+	void testMultiplyMatricesLA4J() {
 		Matrix firstMatrix = new Basic2DMatrix(
 				new double[][] { new double[] { 1d, 5d }, new double[] { 2d, 3d }, new double[] { 1d, 7d } });
 		
@@ -95,7 +108,7 @@ public class MatrixMultTest {
 	}
 	
 	@Test
-	void multiplyMatricesColt() {
+	void testMultiplyMatricesColt() {
 		DoubleMatrix2D firstMatrix = DoubleFactory2D.dense							
 				.make(new double[][] { new double[] { 1d, 5d }, new double[] { 2d, 3d }, new double[] { 1d, 7d } });
 		

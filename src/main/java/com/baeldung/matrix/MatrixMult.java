@@ -2,9 +2,9 @@ package com.baeldung.matrix;
 
 public class MatrixMult {
 
-	public double[][] multiplyMatrices(double[][] firstMatrix, double[][] secondMatrix) {
+	public double[][] multiplyMatrices(double[][] firstMatrix, double[][] secondMatrix) {				
 		double[][] result = new double[firstMatrix.length][secondMatrix[0].length];
-
+		
 		for (int row = 0; row < result.length; row++) {
 			for (int col = 0; col < result[row].length; col++) {
 				result[row][col] = multiplyMatricesCell(firstMatrix, secondMatrix, row, col);
