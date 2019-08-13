@@ -6,11 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import org.apache.commons.math3.linear.Array2DRowRealMatrix;
 import org.apache.commons.math3.linear.RealMatrix;
 import org.ejml.simple.SimpleMatrix;
-<<<<<<< HEAD
 import org.junit.jupiter.api.Assertions;
-=======
 import org.junit.jupiter.api.Disabled;
->>>>>>> 5205367886fdcdefb7a5f6fe694ac14269260095
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.la4j.Matrix;

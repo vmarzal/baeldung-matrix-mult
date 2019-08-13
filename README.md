@@ -1,3 +1,7 @@
-## Matrices multiplication
+## Java examples from Baeldung web
 
-Examples from Baeldung site for matrixes multiplications.
+### Matrices multiplication
+
+Several ways for matrixes multiplications.
+
+### BigDecimal Validation
