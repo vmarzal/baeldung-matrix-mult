@@ -5,3 +5,5 @@
 Several ways for matrixes multiplications.
 
 ### BigDecimal Validation
+
+https://www.baeldung.com/javax-bigdecimal-validation
