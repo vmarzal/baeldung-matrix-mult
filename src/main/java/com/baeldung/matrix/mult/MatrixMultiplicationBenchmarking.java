@@ -1,4 +1,4 @@
-package com.baeldung.matrix;
+package com.baeldung.matrix.mult;
 
 import java.util.concurrent.TimeUnit;
 

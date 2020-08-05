@@ -1,8 +1,9 @@
-package com.baeldung.matrix;
+package com.baeldung.matrix.mult;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
+import com.baeldung.matrix.mult.support.TestResultLoggerExtension;
 import org.apache.commons.math3.linear.Array2DRowRealMatrix;
 import org.apache.commons.math3.linear.RealMatrix;
 import org.ejml.simple.SimpleMatrix;
@@ -14,8 +15,6 @@ import org.la4j.Matrix;
 import org.la4j.matrix.dense.Basic2DMatrix;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
-
-import com.baeldung.matrix.support.TestResultLoggerExtension;
 
 import cern.colt.matrix.DoubleFactory2D;
 import cern.colt.matrix.DoubleMatrix2D;

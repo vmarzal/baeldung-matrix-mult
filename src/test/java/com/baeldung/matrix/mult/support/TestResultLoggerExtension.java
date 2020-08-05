@@ -1,4 +1,4 @@
-package com.baeldung.matrix.support;
+package com.baeldung.matrix.mult.support;
 
 import java.util.ArrayList;
 import java.util.List;
