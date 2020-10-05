@@ -14,7 +14,10 @@
 		<junit5.version>5.5.1</junit5.version>		
 		<validation-api.version>2.0.1.Final</validation-api.version>
 		<hibernate-validator.version>6.0.13.Final</hibernate-validator.version>
-		<javax.el.version>3.0.0</javax.el.version>    		
+		<javax.el.version>3.0.0</javax.el.version>
+
+		<beam.version>2.23.0</beam.version>
+
 	</properties>
 
 	<dependencies>
@@ -121,7 +124,21 @@
 		    <artifactId>colt</artifactId>
 		    <version>1.2.0</version>
 		</dependency>		
-											
+
+		<!-- Apache Beam -->
+		<dependency>
+			<groupId>org.apache.beam</groupId>
+			<artifactId>beam-sdks-java-core</artifactId>
+			<version>${beam.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.beam</groupId>
+			<artifactId>beam-runners-direct-java</artifactId>
+			<version>${beam.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
 	</dependencies>
 
 </project>
